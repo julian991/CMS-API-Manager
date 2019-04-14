@@ -140,6 +140,15 @@ class Dengue():
 
         self.db.child("Dengue_Data").update(self.j_data)
 
+        #Json file in server
+        title = "dengue_json_data"
+        try:
+            with open(title, 'w') as json_file:
+                json.dump(self.j_data, json_file)
+            return 'Json file saved successfully'
+        except:
+            return 'Json file not saved, an error has occurred'
+
 if __name__=='__main__':
     dengue_api = Dengue()
     # pprint.pprint(dengue_api.j_data)
